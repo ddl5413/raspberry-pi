@@ -17,7 +17,7 @@ def main():
     GPIO.setup(7, GPIO.OUT)
     GPIO.setup(11, GPIO.OUT)
     v = [0, 1]
-    for i in range(0, 4):
+    for i in range(0, 10):
         roll(v, 4, 2)
         v.reverse()
     GPIO.cleanup()
