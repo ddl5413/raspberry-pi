@@ -7,5 +7,6 @@ GPIO.setup(7, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 
 GPIO.output(7, 1)
+GPIO.output(11, 0)
 time.sleep(10)
 GPIO.cleanup()
