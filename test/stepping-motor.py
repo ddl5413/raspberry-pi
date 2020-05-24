@@ -6,7 +6,7 @@ def step(i1,i2,i3,i4):
 	GPIO.output(11,i2)
 	GPIO.output(13,i3)
 	GPIO.output(15,i4)
-	time.sleep(0.02)
+	time.sleep(0.01)
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
@@ -19,4 +19,5 @@ for i in range(0,1000):
 	step(0,1,0,0)
 	step(0,0,1,0)
 	step(0,0,0,1)
+GPIO.cleanup()
 
