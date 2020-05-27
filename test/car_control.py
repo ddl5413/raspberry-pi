@@ -6,30 +6,22 @@ urls = ('/(.*)', 'Action')
 
 
 class Action:
-    signal = False
-    count = 0
 
     def __init__(self):
+        print('init')
         GPIO.setmode(GPIO.BOARD)
         GPIO.setwarnings(False)
         GPIO.setup(12, GPIO.OUT)
         GPIO.setup(16, GPIO.OUT)
 
     def GET(self, action):
+        print(f'action:{action}')
         if action == 'start':
             Action.forward()
-            Action.signal = True
-            while Action.signal:
-                Action.count += 1
-                print(Action.count)
-                time.sleep(1)
-                if Action.count == 100:
-                    break
         if action == 'stop':
-            Action.signal = False
             Action.stop()
 
-    def urn_left(self):
+    def turn_left(self):
         print('left')
 
     def turn_right(self):
