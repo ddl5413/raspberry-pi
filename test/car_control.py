@@ -1,6 +1,6 @@
 import web
 import time
-import car
+from car import Car
 
 urls = ('/(.*)', 'Action')
 
@@ -11,7 +11,7 @@ class Action:
 
     def GET(self, action):
         if action == 'start':
-            car.forward()
+            Car.forward()
             Action.signal = True
             while Action.signal:
                 Action.count += 1
@@ -21,6 +21,7 @@ class Action:
                     break
         if action == 'stop':
             Action.signal = False
+            Car.stop()
 
 
 if __name__ == '__main__':
