@@ -17,9 +17,9 @@ class Action:
     def GET(self, action):
         print(f'action:{action}')
         if action == 'start':
-            Action.forward()
+            Action.forward(self)
         if action == 'stop':
-            Action.stop()
+            Action.stop(self)
 
     def turn_left(self):
         print('left')
