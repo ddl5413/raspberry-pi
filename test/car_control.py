@@ -15,7 +15,7 @@ step = 0
 
 def turn_left():
     global left, step
-    print('left')
+    print(f'left:{left}, right:{right}')
     if right:
         return
     left = True
@@ -23,7 +23,7 @@ def turn_left():
         step += 1
         if step == 4:
             step = 0
-        turn(step)
+        turn()
 
 
 def stop_turn_left():
@@ -33,7 +33,7 @@ def stop_turn_left():
 
 def turn_right():
     global right, step
-    print('right')
+    print(f'left:{left}, right:{right}')
     if left:
         return
     right = True
@@ -63,6 +63,7 @@ def stop():
 
 def turn():
     global vectors, step
+    print(f"turn vector{vectors[step]}")
     GPIO.setup(7, vectors[step][0])
     GPIO.setup(11, vectors[step][1])
     GPIO.setup(13, vectors[step][2])
