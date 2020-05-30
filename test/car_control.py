@@ -24,6 +24,7 @@ def turn_left():
         if step == 4:
             step = 0
         turn()
+        time.sleep(0.002)
 
 
 def stop_turn_left():
@@ -42,6 +43,7 @@ def turn_right():
         if step == -1:
             step = 3
         turn()
+        time.sleep(0.002)
 
 
 def stop_turn_right():
@@ -68,7 +70,6 @@ def turn():
     GPIO.setup(11, vectors[step][1])
     GPIO.setup(13, vectors[step][2])
     GPIO.setup(15, vectors[step][3])
-    time.sleep(0.002)
 
 
 class Action:
