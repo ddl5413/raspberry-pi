@@ -66,10 +66,10 @@ def stop():
 def turn():
     global vectors, step
     print(f"turn vector{vectors[step]}")
-    GPIO.setup(7, vectors[step][0])
-    GPIO.setup(11, vectors[step][1])
-    GPIO.setup(13, vectors[step][2])
-    GPIO.setup(15, vectors[step][3])
+    GPIO.output(7, vectors[step][0])
+    GPIO.output(11, vectors[step][1])
+    GPIO.output(13, vectors[step][2])
+    GPIO.output(15, vectors[step][3])
 
 
 class Action:
