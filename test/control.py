@@ -2,7 +2,8 @@ import RPi.GPIO as GPIO
 import web
 import time
 
-urls = ('/(.*)', 'Action')
+urls = ('/action/(.*)', 'Action',
+        '/html/control.html', 'HTML')
 
 left = False
 right = False
@@ -102,6 +103,11 @@ class Action:
             turn_right()
         if action == 'stop_turn_right':
             stop_turn_right()
+
+class HTML:
+
+    def GET(self):
+        return open('../html/control.html')
 
 
 if __name__ == '__main__':

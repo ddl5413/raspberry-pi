@@ -1,0 +1,52 @@
+<html>
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.min.js"></script>
+    <script type="text/javascript">
+    left = false
+    right = false;
+        $(document).ready(function(){
+            $("#go").click(function(){
+                console.log('go');
+                $.ajax({url:"http://192.168.31.33:8080/start"});
+            });
+            $('#stop').click(function(){
+                console.log('stop');
+                $.ajax({url:"http://192.168.31.33:8080/stop"});
+            });
+            $("body").keydown(function(event){
+                var keyCode = event.keyCode;
+                console.log(keyCode)
+                if (keyCode == 65 && !left) {
+                    left = true;
+                    $.ajax({url:"http://192.168.31.33:8080/turn_left"});
+                }
+                if (keyCode == 68 && !right) {
+                    right = true
+                    $.ajax({url:"http://192.168.31.33:8080/turn_right"});
+                }
+                if (keyCode == 87) {
+                    $.ajax({url:"http://192.168.31.33:8080/start"});
+                }
+                if (keyCode == 83) {
+                    $.ajax({url:"http://192.168.31.33:8080/stop"});
+                }
+            });
+            $("body").keyup(function(event){
+                var keyCode = event.keyCode;
+                console.log(keyCode)
+                if (keyCode == 65) {
+                    $.ajax({url:"http://192.168.31.33:8080/stop_turn_left"});
+                    left = false
+                }
+                if (keyCode == 68) {
+                    $.ajax({url:"http://192.168.31.33:8080/stop_turn_right"});
+                    right = false
+                }
+            });
+        });
+    </script>
+</head>
+    <button id="go">go</button>
+    <button id="stop">stop</button>
+</body>
+</html>
