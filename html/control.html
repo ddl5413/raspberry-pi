@@ -7,39 +7,39 @@
         $(document).ready(function(){
             $("#go").click(function(){
                 console.log('go');
-                $.ajax({url:"http://192.168.31.33:8080/start"});
+                $.ajax({url:"http://192.168.31.33:8080/action/start"});
             });
             $('#stop').click(function(){
                 console.log('stop');
-                $.ajax({url:"http://192.168.31.33:8080/stop"});
+                $.ajax({url:"http://192.168.31.33:8080/action/stop"});
             });
             $("body").keydown(function(event){
                 var keyCode = event.keyCode;
                 console.log(keyCode)
                 if (keyCode == 65 && !left) {
                     left = true;
-                    $.ajax({url:"http://192.168.31.33:8080/turn_left"});
+                    $.ajax({url:"http://192.168.31.33:8080/action/turn_left"});
                 }
                 if (keyCode == 68 && !right) {
                     right = true
-                    $.ajax({url:"http://192.168.31.33:8080/turn_right"});
+                    $.ajax({url:"http://192.168.31.33:8080/action/turn_right"});
                 }
                 if (keyCode == 87) {
-                    $.ajax({url:"http://192.168.31.33:8080/start"});
+                    $.ajax({url:"http://192.168.31.33:8080/action/start"});
                 }
                 if (keyCode == 83) {
-                    $.ajax({url:"http://192.168.31.33:8080/stop"});
+                    $.ajax({url:"http://192.168.31.33:8080/action/stop"});
                 }
             });
             $("body").keyup(function(event){
                 var keyCode = event.keyCode;
                 console.log(keyCode)
                 if (keyCode == 65) {
-                    $.ajax({url:"http://192.168.31.33:8080/stop_turn_left"});
+                    $.ajax({url:"http://192.168.31.33:8080/action/stop_turn_left"});
                     left = false
                 }
                 if (keyCode == 68) {
-                    $.ajax({url:"http://192.168.31.33:8080/stop_turn_right"});
+                    $.ajax({url:"http://192.168.31.33:8080/action/stop_turn_right"});
                     right = false
                 }
             });
