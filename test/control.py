@@ -44,7 +44,7 @@ def turn_right():
         if step == -1:
             step = 3
         turn()
-        time.sleep(0.002)
+        time.sleep(0.0015)
 
 
 def stop_turn_right():
@@ -60,8 +60,8 @@ def forward():
 
 
 def backward():
-    GPIO.output(12, 1)
-    GPIO.output(16, 0)
+    GPIO.output(12, 0)
+    GPIO.output(16, 1)
     GPIO.output(18, 1)
     print('backward')
 
@@ -82,7 +82,6 @@ def brake():
 
 def turn():
     global vectors, step
-    print(f"turn vector{vectors[step]}")
     GPIO.output(7, vectors[step][0])
     GPIO.output(11, vectors[step][1])
     GPIO.output(13, vectors[step][2])
