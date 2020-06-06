@@ -16,7 +16,6 @@ step = 0
 
 def turn_left():
     global left, step
-    print(f'left:{left}, right:{right}')
     if right:
         return
     left = True
@@ -35,7 +34,6 @@ def stop_turn_left():
 
 def turn_right():
     global right, step
-    print(f'left:{left}, right:{right}')
     if left:
         return
     right = True
