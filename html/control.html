@@ -2,45 +2,55 @@
 <head>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.0.min.js"></script>
     <script type="text/javascript">
-    left = false
-    right = false;
+        left = false
+        right = false;
+        forward = false;
+        backward = false;
         $(document).ready(function(){
-            $("#go").click(function(){
-                console.log('go');
-                $.ajax({url:"http://192.168.31.33:8080/action/start"});
-            });
-            $('#stop').click(function(){
-                console.log('stop');
-                $.ajax({url:"http://192.168.31.33:8080/action/stop"});
-            });
             $("body").keydown(function(event){
                 var keyCode = event.keyCode;
-                console.log(keyCode)
                 if (keyCode == 65 && !left) {
+                    console.log('left');
                     left = true;
                     $.ajax({url:"http://192.168.31.33:8080/action/turn_left"});
                 }
                 if (keyCode == 68 && !right) {
-                    right = true
+                    console.log('right');
+                    right = true;
                     $.ajax({url:"http://192.168.31.33:8080/action/turn_right"});
                 }
-                if (keyCode == 87) {
-                    $.ajax({url:"http://192.168.31.33:8080/action/start"});
+                if (keyCode == 87 && !forward) {
+                    console.log('forward');
+                    forward = true;
+                    $.ajax({url:"http://192.168.31.33:8080/action/forward"});
                 }
-                if (keyCode == 83) {
-                    $.ajax({url:"http://192.168.31.33:8080/action/stop"});
+                if (keyCode == 83 && !backward) {
+                    console.log('backward');
+                    backward = true;
+                    $.ajax({url:"http://192.168.31.33:8080/action/backward"});
+                }
+                if (keyCode == 32) {
+                    console.log('brake');
+                    $.ajax({url:"http://192.168.31.33:8080/action/brake"});
                 }
             });
             $("body").keyup(function(event){
                 var keyCode = event.keyCode;
-                console.log(keyCode)
                 if (keyCode == 65) {
+                    console.log('stop_turn_left');
                     $.ajax({url:"http://192.168.31.33:8080/action/stop_turn_left"});
-                    left = false
+                    left = false;
                 }
                 if (keyCode == 68) {
+                    console.log('stop_turn_right');
                     $.ajax({url:"http://192.168.31.33:8080/action/stop_turn_right"});
-                    right = false
+                    right = false;
+                }
+                if (keyCode == 87 || keyCode == 83) {
+                    console.log('stop');
+                    $.ajax({url:"http://192.168.31.33:8080/action/stop"});
+                    forward = false;
+                    backward = false;
                 }
             });
         });

@@ -55,13 +55,29 @@ def stop_turn_right():
 def forward():
     GPIO.output(12, 1)
     GPIO.output(16, 0)
+    GPIO.output(18, 1)
     print('forward')
+
+
+def backward():
+    GPIO.output(12, 1)
+    GPIO.output(16, 0)
+    GPIO.output(18, 1)
+    print('backward')
 
 
 def stop():
     GPIO.output(12, 0)
     GPIO.output(16, 0)
+    GPIO.output(18, 0)
     print('stop')
+
+
+def brake():
+    GPIO.output(12, 0)
+    GPIO.output(16, 0)
+    GPIO.output(18, 1)
+    print('brake')
 
 
 def turn():
@@ -82,6 +98,7 @@ class Action:
         # forward engine control
         GPIO.setup(12, GPIO.OUT)
         GPIO.setup(16, GPIO.OUT)
+        GPIO.setup(18, GPIO.OUT)
 
         # turn engine control
         GPIO.setup(7, GPIO.OUT)
@@ -91,8 +108,12 @@ class Action:
 
     def GET(self, action):
         print(f'action:{action}')
-        if action == 'start':
+        if action == 'forward':
             forward()
+        if action == 'backward':
+            backward()
+        if action == 'brake':
+            brake()
         if action == 'stop':
             stop()
         if action == 'turn_left':
