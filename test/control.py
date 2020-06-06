@@ -25,7 +25,7 @@ def turn_left():
         if step == 4:
             step = 0
         turn()
-        time.sleep(0.0017)
+        time.sleep(0.0018)
 
 
 def stop_turn_left():
@@ -44,7 +44,7 @@ def turn_right():
         if step == -1:
             step = 3
         turn()
-        time.sleep(0.0016)
+        time.sleep(0.0018)
 
 
 def stop_turn_right():
