@@ -17,21 +17,21 @@
                 if (keyCode == 68 && !right) {
                     console.log('right');
                     right = true;
-                    $.ajax({url:"http://192.168.31.33:8080/action/turn_right"});
+                    $.ajax({url:"/action/turn_right"});
                 }
                 if (keyCode == 87 && !forward) {
                     console.log('forward');
                     forward = true;
-                    $.ajax({url:"http://192.168.31.33:8080/action/forward"});
+                    $.ajax({url:"/action/forward"});
                 }
                 if (keyCode == 83 && !backward) {
                     console.log('backward');
                     backward = true;
-                    $.ajax({url:"http://192.168.31.33:8080/action/backward"});
+                    $.ajax({url:"/action/backward"});
                 }
                 if (keyCode == 32) {
                     console.log('brake');
-                    $.ajax({url:"http://192.168.31.33:8080/action/brake"});
+                    $.ajax({url:"/action/brake"});
                 }
             });
             $("body").keyup(function(event){
@@ -43,12 +43,12 @@
                 }
                 if (keyCode == 68) {
                     console.log('stop_turn_right');
-                    $.ajax({url:"http://192.168.31.33:8080/action/stop_turn_right"});
+                    $.ajax({url:"/action/stop_turn_right"});
                     right = false;
                 }
                 if (keyCode == 87 || keyCode == 83) {
                     console.log('stop');
-                    $.ajax({url:"http://192.168.31.33:8080/action/stop"});
+                    $.ajax({url:"/action/stop"});
                     forward = false;
                     backward = false;
                 }
