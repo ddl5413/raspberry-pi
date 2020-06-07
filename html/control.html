@@ -12,7 +12,7 @@
                 if (keyCode == 65 && !left) {
                     console.log('left');
                     left = true;
-                    $.ajax({url:"http://192.168.31.33:8080/action/turn_left"});
+                    $.ajax({url:"/action/turn_left"});
                 }
                 if (keyCode == 68 && !right) {
                     console.log('right');
@@ -38,7 +38,7 @@
                 var keyCode = event.keyCode;
                 if (keyCode == 65) {
                     console.log('stop_turn_left');
-                    $.ajax({url:"http://192.168.31.33:8080/action/stop_turn_left"});
+                    $.ajax({url:"/action/stop_turn_left"});
                     left = false;
                 }
                 if (keyCode == 68) {

@@ -12,19 +12,18 @@ vectors = ((1, 0, 0, 0),
            (0, 0, 1, 0),
            (0, 0, 0, 1))
 step = 0
+turn_speed = 0.002
 
 
 def turn_left():
-    global left, step
-    if right:
-        return
-    left = True
+    global left, right, step
+    left, right = True, False
     while left:
         step += 1
         if step == 4:
             step = 0
         turn()
-        time.sleep(0.0018)
+        time.sleep(turn_speed)
 
 
 def stop_turn_left():
@@ -33,16 +32,14 @@ def stop_turn_left():
 
 
 def turn_right():
-    global right, step
-    if left:
-        return
-    right = True
+    global left, right, step
+    left, right = False, True
     while right:
         step -= 1
         if step == -1:
             step = 3
         turn()
-        time.sleep(0.0018)
+        time.sleep(turn_speed)
 
 
 def stop_turn_right():
